@@ -1,3 +1,4 @@
 <?php
-echo "Hello PHP";
+$m = new \MongoDB\Driver\Manager();
+echo "Connection Made";
 ?>
