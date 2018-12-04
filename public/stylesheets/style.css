@@ -1,0 +1,32 @@
+
+
+body {
+  padding: 500px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.header {
+  font-size: 60px;
+  padding: 10px;
+  color: rgba(46, 204, 113, 1);
+  
+}
+
+.subheader {
+  font-size: 30px;
+  padding: 10px;
+  
+}
+
+
+.tRow:hover{
+  background-color: rgba(46, 204, 113, .3);
+}
+
+
+
+
