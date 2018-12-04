@@ -1,0 +1,51 @@
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/dataTables.semanticui.min.css">
+
+<script type="text/javascript" charset="utf8" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/dataTables.semanticui.min.js"></script>
+
+<script type="text/javascript" charset="utf8" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.js"></script>
+
+<div style="width:90%; margin: auto;">
+<h1 class="header">{{ title }}<p class="subheader">View Data Points For Vehicle With Data</p></h1>
+
+<!--#5333ed-->
+</div>
+
+<div style="width:90%; margin: auto;">
+
+<table id="table_id" class="ui celled table" style="width:100%;">
+    <thead>
+        <tr>
+            <th>Data Point ID</th>
+            <th>Speed</th>
+            <th>RPM (Did?)</th>
+            <th>Last Updated</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{# each dataArr}}
+            
+            <tr class="tRow">
+                <td>{{ this._id }}</td>
+                <td>{{ this.speed }}</td>
+                <td>{{ this.did }}</td>
+                <td>{{ this.date }}</td>
+            </tr>
+        {{/each}}
+        
+        
+    </tbody>
+</table>
+
+</div>
+
+
+<script>
+    $(document).ready( function () {
+        $('#table_id').DataTable();
+    });
+</script>
