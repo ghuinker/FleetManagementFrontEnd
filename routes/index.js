@@ -55,8 +55,8 @@ router.get('/', function(req, res, next) {
 
         
 
-        console.log(vehicle.data);
-        res.render('index', { title: 'Cars List', condition: true, dataArr: vehicle.data });
+        ///console.log(vehicle.data);
+        res.render('index', { title: 'Vehicle With Data', condition: true, dataArr: vehicle.data });
         
       });
 
