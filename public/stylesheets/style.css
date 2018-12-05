@@ -27,6 +27,19 @@ a {
   background-color: rgba(46, 204, 113, .3);
 }
 
+.dataButton{
+  width:100%; 
+  border-radius: 25px; 
+  margin-top: 20px; 
+  height: 30px;
+  background-color:rgba(46, 204, 113, .3);
+  transition: .5s;
+}
+.dataButton:hover {
+  background-color:rgba(46, 204, 113, 1);
+  cursor: pointer;
+}
+
 
 
 
