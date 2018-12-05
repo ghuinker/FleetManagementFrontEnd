@@ -43,11 +43,13 @@
 
 <div><a href="/index/{{car}}/prevData"><button id="dataButton" class="dataButton" >Link To Previous Data</button></a></div>
 
-<div id="map"></div>
-
+  <iframe
+    id="map"
+    frameborder="0" style="border:0"
+    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDkQX8tXFZ1vFSaoAoRs-cSaaLv47T__6E
+    &q=Space+Needle,Seattle+WA" allowfullscreen>
+  </iframe>
 </div>
-
-
 
 <style>
   /* Always set the map height explicitly to define the size of the div
@@ -66,30 +68,8 @@
   }
 </style>
 
-
-<script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDL5X5ne5wkUkm-s_Rr2KNuYqU2NbfSVTQ&callback=initMap">
-</script>
 <script>
     $(document).ready( function () {
         $('#table_id').DataTable();
     });
-
-    
-</script>
-<script>
-  function initMap() {
-    var myLatLng = {lat: -25.363, lng: 131.044};
-
-    var map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 4,
-      center: myLatLng
-    });
-
-    var marker = new google.maps.Marker({
-      position: myLatLng,
-      map: map,
-      title: 'Hello World!'
-    });
-  }
 </script>
