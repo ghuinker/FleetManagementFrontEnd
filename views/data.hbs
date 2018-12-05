@@ -10,7 +10,7 @@
 <script type="text/javascript" charset="utf8" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.js"></script>
 
 <div style="width:90%; margin: auto;">
-<h1 class="header">Info For Vehicle #{{ car }}<p class="subheader">Most Recent Data</p></h1>
+<h1 class="header">Info For Vehicle #{{ car }}<p class="subheader">View Data Points For Vehicle With Data</p></h1>
 
 <!--#5333ed-->
 </div>
@@ -41,55 +41,10 @@
     </tbody>
 </table>
 
-<div><a href="/index/{{car}}/prevData"><button id="dataButton" class="dataButton" >Link To Previous Data</button></a></div>
-
-<div id="map"></div>
-
 </div>
-
-
-
-<style>
-  /* Always set the map height explicitly to define the size of the div
-   * element that contains the map. */
-  #map {
-    height: 300px;
-    width: 100%;
-    margin-top: 20px;
-    border-radius: 25px;
-  }
-  /* Optional: Makes the sample page fill the window. */
-  html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-  }
-</style>
-
-
-<script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDL5X5ne5wkUkm-s_Rr2KNuYqU2NbfSVTQ&callback=initMap">
-</script>
 <script>
     $(document).ready( function () {
         $('#table_id').DataTable();
     });
-
-    
 </script>
-<script>
-  function initMap() {
-    var myLatLng = {lat: -25.363, lng: 131.044};
 
-    var map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 4,
-      center: myLatLng
-    });
-
-    var marker = new google.maps.Marker({
-      position: myLatLng,
-      map: map,
-      title: 'Hello World!'
-    });
-  }
-</script>
