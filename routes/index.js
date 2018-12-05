@@ -41,27 +41,58 @@ var VehicleData = mongoose.model('VehicleDAta', VehicleDataSchema);
 router.get('/', function(req, res, next) {
     
     mongoose.connect("mongodb://TeamFunTime:TFT2018@ds147073.mlab.com:47073/fleetdb", { useNewUrlParser: true }, () => {
-      console.log("CONNECTED!!!");
-      // VehicleData.find(function (err, cars) {
-      //   if (err) return console.error(err);
-      //   //console.log(cars);
-      // });
+      //console.log("CONNECTED!!!");
 
-      let i = 0;
-
-      VehicleData.findOne({'vid' : 5}, 'data.speed data.did data._id data.date', function (err, vehicle) {
+      VehicleData.find({},  function (err, vehicle) {
         if (err) return err;
 
-
-        
-
-        ///console.log(vehicle.data);
-        res.render('index', { title: 'Vehicle With Data', condition: true, dataArr: vehicle.data });
+        //console.log(vehicle);
+        res.render('home', { title: 'Vehicle With Data', condition: true, dataArr: vehicle });
         
       });
 
+
       
     });
+});
+/* GET Vehicle Page. */ 
+router.get('/index/:vid', function(req, res, next) {
+    
+  mongoose.connect("mongodb://TeamFunTime:TFT2018@ds147073.mlab.com:47073/fleetdb", { useNewUrlParser: true }, () => {
+    //console.log("CONNECTED!!!");
+
+    let vid = req.params.vid;
+ 
+    VehicleData.findOne({'vid' : vid}, 'data.speed data.did data._id data.date', function (err, vehicle) {
+      if (err) return err;
+
+      
+
+      res.render('index', { title: 'Vehicle With Data', condition: true, dataArr: [vehicle.data.pop()], car:req.params.vid });
+      
+    });
+
+    
+  });
+});
+
+/* GET data Page. */ 
+router.get('/index/:vid/prevData', function(req, res, next) {
+    
+  mongoose.connect("mongodb://TeamFunTime:TFT2018@ds147073.mlab.com:47073/fleetdb", { useNewUrlParser: true }, () => {
+    //console.log("CONNECTED!!!");
+
+    let vid = req.params.vid;
+ 
+    VehicleData.findOne({'vid' : vid}, 'data.speed data.did data._id data.date', function (err, vehicle) {
+      if (err) return err;
+
+      res.render('data', { title: 'Vehicle With Data', condition: true, dataArr: vehicle.data, car:req.params.vid });
+      
+    });
+
+    
+  });
 });
 
 
